@@ -1,0 +1,416 @@
+{
+  "namespace": "tabbed_upsell",
+
+  //---------------------------------------------------------------------------
+  // Padding panels
+  //---------------------------------------------------------------------------
+
+  "padding_horizontal": {
+    "type": "panel",
+    "size": [ 2, "100%" ]
+  },
+
+  "padding_vertical": {
+    "type": "panel",
+    "size": [ "100%", 2 ]
+  },
+
+  "text_horizontal_padding": {
+    "type": "panel",
+    "size": [ 5, "100%" ]
+  },
+
+  //---------------------------------------------------------------------------
+  // Button panels content
+  //---------------------------------------------------------------------------
+
+  "tabbed_upsell_buy_now_button@common_buttons.light_content_button": {
+    "$pressed_button_name": "button.menu_exit",
+    "$button_content": "tabbed_upsell.tabbed_buy_now_label"
+  },
+
+  "tabbed_buy_now_label": {
+    "type": "panel",
+    "layer": 2,
+    "controls": [
+      {
+        "button_label": {
+          "type": "label",
+          "color": "$text_color",
+          "text": "Return To Game"
+        }
+      }
+    ]
+  },
+
+  //---------------------------------------------------------------------------
+  // Text Panel
+  //---------------------------------------------------------------------------
+
+  "label_panel": {
+    "type": "panel",
+    "controls": [
+      {
+        "label_text": {
+          "type": "label",
+          "size": [ "100%", "default" ],
+          "$text_font_scale_factor|default": 1,
+          "font_scale_factor": "$text_font_scale_factor",
+          "font_type": "MinecraftTen",
+          "text": "$text",
+          "color": "$text_color"
+        }
+      }
+    ]
+  },
+
+  "text_panel": {
+    "type": "stack_panel",
+    "orientation": "vertical",
+    "size": [ "100% - 2px", "default" ],
+    "controls": [
+      {
+        "tab_content_title_panel@tabbed_upsell.label_panel": {
+          "size": [ "100%", 13 ],
+          "$text": "$title_text",
+          "$text_color": "$main_header_text_color",
+          "$text_font_scale_factor": 1.33
+        }
+      },
+      {
+        "tab_content_description_panel@tabbed_upsell.label_panel": {
+          "size": [ "100%", "100%c" ],
+          "$text_color": "$body_text_color",
+          "$text": "$description_text"
+        }
+      },
+      {
+        "tab_content_description_panel_second@tabbed_upsell.label_panel": {
+          "ignored": "(not $multiline_description)",
+          "size": [ "100%", "100%c" ],
+          "$text_color": "$body_text_color",
+          "$text": "$description_text_line_2"
+        }
+      }
+    ]
+  },
+
+  //---------------------------------------------------------------------------
+  // Image Panel
+  //---------------------------------------------------------------------------
+
+  "dialog_image": {
+    "type": "image",
+    "layer": 2,
+    "texture": "$texture",
+    "size": [ "100% - 2px", "100%" ]
+  },
+
+  "dialog_image_with_border": {
+    "type": "image",
+    "layer": 1,
+    "$background_texture|default": "textures/ui/hud_tip_text_background",
+    "texture": "$background_texture",
+    "controls": [
+      {
+        "dialog_image@tabbed_upsell.dialog_image": {}
+      }
+    ]
+  },
+
+  "content_image_panel": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "size": [ "100%", "100%" ],
+    "controls": [
+      {
+        "horizontal_padding_01@tabbed_upsell.text_horizontal_padding": {}
+      },
+      {
+        "scrolling_panel@common.scrolling_panel": {
+          "size": [ "fill", "100%" ],
+          "$scrolling_content": "tabbed_upsell.scroll_text",
+          "$show_background": false,
+          "$scroll_size": [ "5px", "100% - 4px" ],
+          "$scroll_bar_left_padding_size": [ 1, 0 ],
+          "layer": 3
+        }
+      }
+    ]
+  },
+
+  "scroll_text@common.non_interact_focus_border_button": {
+    "$content_inside": "tabbed_upsell.text_panel",
+    "$border_size": [ "100%", "100%sm + 2px" ],
+    "size": [ "100%", "100%cm" ],
+    "$focus_id": "text_container"
+  },
+
+  "image_panel": {
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "$focus_texture|default": "common.empty_panel",
+    "variables": [
+      {
+        "requires": "(($tab_state = checked_hover) or ($tab_state = checked))",
+        "$focus_texture": "common.focus_border_white"
+      }
+    ],
+    "controls": [
+      {
+        "dialog_image_with_border@tabbed_upsell.dialog_image_with_border": {
+          "size": [ "100%", "100%" ]
+        }
+      },
+      {
+        "focus_image@$focus_texture": {}
+      }
+    ]
+  },
+
+  //---------------------------------------------------------------------------
+  // Tabs layout panels
+  //---------------------------------------------------------------------------
+
+  "tab_navigation_panel_layout": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "anchor_to": "top_left",
+    "anchor_from": "top_left",
+    "size": [ "100%", 16.8 ],
+    "controls": [
+      {
+        "navigation_tabs": {
+          "type": "panel",
+          "size": [ "100%", "100%" ],
+          "controls": [
+            {
+              "content@$navigation_tab": {
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "common_tab_navigation_panel_layout": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "size": [ "100%", "100%" ]
+  },
+
+  "tabbed_tab_navigation_panel_layout@tabbed_upsell.common_tab_navigation_panel_layout": {
+    "controls": [
+      {
+        "minecraft_navigation_tab@tabbed_upsell.top_tab": {
+          "size": [ "fill", "100%" ],
+          "$tab_view_binding_name": "minecraft_navigation_tab_toggle",
+          "$radio_toggle_group": true,
+          "$toggle_group_forced_index": 0,
+          "$texture": "zeqa/textures/ui/sp/zeqa_info_glyph",
+          "$tab_panel": "tabbed_upsell.image_panel"
+        }
+      },
+      {
+        "nav_padding_01@tabbed_upsell.padding_horizontal": {}
+      }
+    ]
+  },
+
+  //---------------------------------------------------------------------------
+  // Content layout panels
+  //---------------------------------------------------------------------------
+
+  "tabbed_tab_content_panel_layout": {
+    "type": "panel",
+    "anchor_to": "bottom_middle",
+    "anchor_from": "bottom_middle",
+    "size": [ "100%", "fill" ],
+    "$multiline_description": false,
+    "controls": [
+      {
+        "minecraft_tab_content@tabbed_upsell.minecraft_tab_content_panel": {}
+      }
+    ]
+  },
+
+  //---------------------------------------------------------------------------
+  // Content tabs panel
+  //---------------------------------------------------------------------------
+
+  "common_tab_content_panel": {
+    "type": "panel",
+    "controls": [
+      {
+        "content@$scroll_tab_content": {
+          "layer": 2,
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "size": [ "100%", "100%" ]
+        }
+      }
+    ],
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "$visible_bind_toggle_source_control",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+
+  "minecraft_tab_content_panel@tabbed_upsell.common_tab_content_panel": {
+    "$visible_bind_toggle_source_control": "minecraft_navigation_tab_toggle",
+    "$scroll_tab_content": "tabbed_upsell.content_image_panel",
+    "$title_text": "§eNetwork Rules",
+    "$description_text": "\n - Do not ban evade.\n \n - Use a minimum of 10ms debounce time.\n \n - Do not hack or use any unfair advantages.\n(Speed, Fly, etc)\n \n - Do not use macros or firekeys.\n(Keymappers, Auto-Clickers, etc)\n \n - Do not send disrespectful messages or messages containing inappropriate language.\n(Racism, Death Threats, Spamming, Self-Promo/Advertising, etc)\n \n - Do not use any 'hack' clients that provide advantages.\n(Toolbox, Horion, etc)\n \n - Do not abuse bugs or glitches.\n(Glitching into the ground or nearby blocks to kill an opponent, etc)\n \n - Do not elo boost.\n \n - If you cheat on other servers please restart your PC before playing on our Network (incase you get ss'd) \n \n Note: If your mouse double clicks, be sure to use DC Prevent while playing.\n \n - Drag clicking also falls under the double click rule.\n\n"
+  },
+
+  //---------------------------------------------------------------------------
+  // Tab Panel
+  //---------------------------------------------------------------------------
+
+  "common_tab_screen_panel": {
+    "type": "stack_panel",
+    "orientation": "vertical",
+    "size": [ "100% - 4px", "100%" ],
+    "controls": [
+      {
+        "tab_navigation_panel@tabbed_upsell.tab_navigation_panel_layout": {}
+      },
+      {
+        "padding_01@tabbed_upsell.padding_vertical": {}
+      },
+      {
+        "tab_content_panel@$tab_content_panel": {}
+      }
+    ]
+  },
+
+  "tabbed_screen_panel@tabbed_upsell.common_tab_screen_panel": {
+    "$navigation_tab": "tabbed_upsell.tabbed_tab_navigation_panel_layout",
+    "$tab_content_panel": "tabbed_upsell.tabbed_tab_content_panel_layout"
+  },
+
+  //---------------------------------------------------------------------------
+  // Button main Panel
+  //---------------------------------------------------------------------------
+
+  "button_panel": {
+    "type": "stack_panel",
+    "size": [ "100%", 29 ],
+    "orientation": "horizontal",
+    "controls": [
+      {
+        "padding_5@tabbed_upsell.padding_horizontal": {}
+      },
+      {
+        "buy_now_button@tabbed_upsell.tabbed_upsell_buy_now_button": {
+          "size": [ "100% - 4px", "100%" ],
+          "$focus_override_up": "text_container"
+        }
+      },
+      {
+        "padding_6@tabbed_upsell.padding_horizontal": {}
+      }
+    ]
+  },
+
+  //---------------------------------------------------------------------------
+  // Tab main Panel
+  //---------------------------------------------------------------------------
+
+  "tab_panel": {
+    "type": "stack_panel",
+    "size": [ "100%", "fill" ],
+    "orientation": "horizontal",
+    "controls": [
+      {
+        "padding_3@tabbed_upsell.padding_horizontal": {}
+      },
+      {
+        "main_control@tabbed_upsell.tabbed_screen_panel": {}
+      },
+      {
+        "padding_4@tabbed_upsell.padding_horizontal": {}
+      }
+    ]
+  },
+
+  "tabbed_Upsell_content": {
+    "type": "stack_panel",
+    "size": [ "100%", "100%" ],
+    "orientation": "vertical",
+    "controls": [
+      {
+        "padding_0@tabbed_upsell.padding_vertical": {}
+      },
+      {
+        "tab_panel@tabbed_upsell.tab_panel": {}
+      },
+      {
+        "padding_1@tabbed_upsell.padding_vertical": {}
+      },
+      {
+        "button_panel@tabbed_upsell.button_panel": {}
+      },
+      {
+        "padding_2@tabbed_upsell.padding_vertical": {}
+      }
+    ]
+  },
+
+  //---------------------------------------------------------------------------
+  // Screen
+  //---------------------------------------------------------------------------
+
+  "tabbed_upsell_screen@common.base_screen": {
+    "button_mappings": [
+      {
+        "from_button_id": "button.menu_cancel",
+        "to_button_id": "button.menu_exit",
+        "mapping_type": "global"
+      },
+      {
+        "from_button_id": "button.menu_tab_left",
+        "to_button_id": "button.menu_tab_left",
+        "mapping_type": "global",
+        "scope": "view"
+      },
+      {
+        "from_button_id": "button.menu_tab_right",
+        "to_button_id": "button.menu_tab_right",
+        "mapping_type": "global",
+        "scope": "view"
+      }
+    ],
+    "force_render_below": true,
+    "$screen_content": "tabbed_upsell.tabbed_upseel_screen_panel"
+  },
+
+  "tabbed_upseel_screen_panel": {
+    "type": "panel",
+    "controls": [
+      {
+        "tabbed_Upsell_screen_content@common_dialogs.main_panel_no_buttons": {
+          "size": ["80%","80%"],
+          "$title_panel": "common_dialogs.standard_title_label",
+          "$text_name": "» §rRules §r& Info «",
+          "font_type" : "MinecraftSeven",
+          "$child_control": "tabbed_upsell.tabbed_Upsell_content",
+          "$show_close_button": true,
+          "layer": 2
+        }
+      },
+      {
+        "background@common.screen_background": {
+          "alpha": 0.65,
+          "layer": 1
+        }
+      }
+    ]
+  }
+
+}

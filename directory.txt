@@ -1,0 +1,212 @@
+
+
+
+Player Ranks Unicode
+
+Player - 
+Booster - 
+Voter - 
+MVP - 
+MVPPlus - 
+Media - 
+Famous - 
+VIP - 
+Host - 
+Designer - 
+Head Designer - 
+Builder - 
+Head Builder - 
+Helper - 
+Mod - 
+Head Mod - 
+Admin - 
+Dev - 
+Owner - 
+------------------
+Platform Icons Unicode
+
+PlayStation 5 - 
+Playstation 4 - 
+Unknown Platform - 
+Switch - 
+Xbox - 
+FireOS - 
+Android - 
+IOS - 
+Windows - 
+Linux - 
+------------------
+More Unicode
+
+Tar1a - 
+Xoop - 
+Citicx - 
+------------------
+Aleart Unicode
+
+! Red - 
+! Yellow - 
+! Green - 
+! Blue - 
+! Cyan - 
+! Pink - 
+------------------
+Lines Unicode
+
+ Short
+   - Gray
+   - Light Gray
+   - White
+   - Red
+   - Aqua
+   - Lime
+   - Magenta
+   - Yellow
+
+ Long
+   - Gray
+   - Light Gray
+   - White
+   - Red
+   - Aqua
+   - Lime
+   - Magenta
+   - Yellow
+------------------
+Scoreboard Unicode
+
+Blue Team - 
+Red Team - 
+Spectate - 
+Clock - 
+Sword - 
+------------------
+Gamemode Unicodes
+
+Build - 
+Nodebuff - 
+Oitc - 
+Fist - 
+Combo - 
+Res - 
+Sumo - 
+Knock - 
+Stickfight - 
+Bedfight - 
+Soup - 
+Classic Duels - 
+UHC - 
+Bridge - 
+Battlerush - 
+Gapple - 
+Boxing - 
+Spleef - 
+MLG Rush - 
+------------------
+UI Unicodes
+
+Shop - 
+Party - 
+Region - 
+Settings - 
+Bots - 
+FFA - 
+Duels - 
+Event - 
+Cancel - 
+------------------
+White Java Font
+
+0xE300 - A 
+0xE301 - B 
+0xE302 - C 
+0xE303 - D 
+0xE304 - E 
+0xE305 - F 
+0xE306 - G 
+0xE307 - H 
+0xE308 - I 
+0xE309 - J 
+0xE30B - K 
+0xE30C - L 
+0xE30D - M 
+0xE30E - N 
+0xE30F - O 
+0xE310 - P 
+0xE311 - Q 
+0xE312 - R 
+0xE313 - S 
+0xE314 - T 
+0xE315 - U 
+0xE316 - V 
+0xE317 - W 
+0xE318 - X 
+0xE319 - Y 
+0xE31A - Z 
+0xE31B - 1 
+0xE31C - 2 
+0xE31D - 3 
+0xE31E - 4 
+0xE31F - 5 
+0xE33B - 6 
+0xE33C - 7 
+0xE33D - 8 
+0xE33E - 9 
+0xE33F - 0 
+------------------
+FFA/GM textures
+
+zeqa/textures/ui/gm/build
+zeqa/textures/ui/gm/nodebuff
+zeqa/textures/ui/gm/oitc
+zeqa/textures/ui/gm/fist
+zeqa/textures/ui/gm/combo
+zeqa/textures/ui/gm/res
+zeqa/textures/ui/gm/sumo
+zeqa/textures/ui/gm/knock
+------------------
+Duels Textures
+
+zeqa/textures/ui/gm/bedfight
+zeqa/textures/ui/gm/sumo
+zeqa/textures/ui/gm/bridge
+zeqa/textures/ui/gm/soup
+zeqa/textures/ui/gm/spleef
+zeqa/textures/ui/gm/boxing
+zeqa/textures/ui/gm/uch
+zeqa/textures/ui/gm/stickfight
+zeqa/textures/ui/gm/battlerush
+zeqa/textures/ui/gm/classicduels
+zeqa/textures/ui/gm/mlgrush
+------------------
+Shop Texture + More Textures
+
+zeqa/textures/ui/more/gift
+zeqa/textures/ui/more/recycle
+zeqa/textures/ui/more/zeqa_pass
+zeqa/textures/ui/more/duel_history
+zeqa/textures/ui/more/changecape
+zeqa/textures/ui/more/changeprojectiletrail
+zeqa/textures/ui/more/cosmetics
+zeqa/textures/ui/more/customtag
+zeqa/textures/ui/more/disguise
+zeqa/textures/ui/more/duelinbox
+zeqa/textures/ui/more/killphrase
+zeqa/textures/ui/more/party_duel
+zeqa/textures/ui/more/partyinbox
+zeqa/textures/ui/more/player_duel
+zeqa/textures/ui/more/trade
+------------------
+(NOT IN USE/BEING USED ANYMORE)
+
+zeqa/textures/ui/gm/ffa
+zeqa/textures/ui/gm/duels
+zeqa/textures/ui/gm/bots
+zeqa/textures/ui/gm/event
+zeqa/textures/ui/gm/party
+zeqa/textures/ui/gm/spectate
+zeqa/textures/ui/gm/shop
+zeqa/textures/ui/gm/settings
+zeqa/textures/ui/gm/region
+zeqa/textures/ui/more/back
+

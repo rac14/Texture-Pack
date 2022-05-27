@@ -1,0 +1,30 @@
+{
+    "resource_pack_name": "§7Zeqa Network's Official Pack",
+    "texture_name": "atlas.items",
+    "texture_data": {
+        "zeqa": {
+            "textures": "zeqa/textures/items/bots"
+        },
+        "duels": {
+            "textures": "zeqa/textures/items/duels"
+        },
+        "ffa": {
+            "textures": "zeqa/textures/items/ffa"
+        },
+        "event": {
+            "textures": "zeqa/textures/items/event"
+        },
+        "party": {
+            "textures": "zeqa/textures/items/party"
+        },
+        "settings": {
+            "textures": "zeqa/textures/items/settings"
+        },
+        "shop": {
+            "textures": "zeqa/textures/items/shop"
+        },
+        "spectate": {
+            "textures": "zeqa/textures/items/spectate"
+        }
+    }
+}

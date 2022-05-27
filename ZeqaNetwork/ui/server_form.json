@@ -1,0 +1,1383 @@
+{
+    "namespace": "server_form",
+    "third_party_server_screen@common.base_screen": {
+        "$screen_content": "server_form.zeqa_main_content",
+        "button_mappings": [
+            {
+                "from_button_id": "button.menu_cancel",
+                "to_button_id": "button.menu_exit",
+                "mapping_type": "global"
+            }
+        ]
+    },
+    "zeqa_main_content": {
+        "type": "panel",
+        "size": [
+            "100%",
+            "100%"
+        ],
+        "controls": [
+            {
+                "server_form_factory": {
+                    "type": "factory",
+                    "control_ids": { 
+                        "long_form": "@server_form.zeqas_long_form",
+                        "custom_form": "@server_form.custom_form"
+                    }
+                }
+            }
+        ]
+    },
+    "zeqas_long_form": {
+        "type": "panel",
+        "$ffa": "               s",
+        "$rank": "ranks",
+        "$rules": "rules",
+        "size": [
+            "100%",
+            "100%"
+        ],
+        "controls": [
+            {
+                "long_form@long_form": {
+                    "bindings": [
+                        {
+                            "binding_type": "global",
+                            "binding_condition": "none",
+                            "binding_name": "#title_text",
+                            "binding_name_override": "#title_text"
+                        },
+                        {
+                            "source_property_name": "(((#title_text - $ffa)  = #title_text) and ((#title_text - $rank) = #title_text)  and ((#title_text - $rules) = #title_text))",
+                            "binding_type": "view",
+                            "target_property_name": "#visible"
+                        }
+                    ]
+                }
+            },
+            {
+                "zeqa_long_form@zeqa_long_form": {
+                    "bindings": [
+                        {
+                            "binding_type": "global",
+                            "binding_condition": "none",
+                            "binding_name": "#title_text",
+                            "binding_name_override": "#title_text"
+                        },
+                        {
+                            "source_property_name": "(not((#title_text - $ffa) = #title_text))",
+                            "binding_type": "view",
+                            "target_property_name": "#visible"
+                        }
+                    ]
+                } 
+            },
+            {
+                "zeqa_rank_form@zeqa_rank_form": {
+                    "bindings": [
+                        {
+                            "binding_type": "global",
+                            "binding_condition": "none",
+                            "binding_name": "#title_text",
+                            "binding_name_override": "#title_text"
+                        },
+                        {
+                            "source_property_name": "(not((#title_text - $rank) = #title_text))",
+                            "binding_type": "view",
+                            "target_property_name": "#visible"
+                        }
+                    ]
+                }
+            },
+            {
+                "zeqa_rules_form@zeqa_rules_form": {
+                    "bindings": [
+                        {
+                            "binding_type": "global",
+                            "binding_condition": "none",
+                            "binding_name": "#title_text",
+                            "binding_name_override": "#title_text"
+                        },
+                        {
+                            "source_property_name": "(not((#title_text - $rules) = #title_text))",
+                            "binding_type": "view",
+                            "target_property_name": "#visible"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "zeqa_long_form": {
+        "type": "panel",
+        "anchor_from": "center",
+        "anchor_to": "center",
+        "size": [
+            "100% - 50px",
+            "100% - 50px"
+        ],
+        "offset": [
+            0,
+            0
+        ],
+        "orientation": "vertical",
+        "controls": [
+            {
+                "title": {
+                    "type": "panel",
+                    "anchor_from": "top_right",
+                    "anchor_to": "top_right",
+                    "controls": [
+                        {
+                            "title_text": {
+                                "layer": 5,
+                                "type": "label",
+                                "font_type": "MinecraftSeven", 
+                                "text": "#title_text",
+                                "text_alignment": "center",
+                                "font_scale_factor": 0.5,
+                                "anchor_from": "top_middle",
+                                "anchor_to": "top_middle",
+                                "offset": [
+                                    0,  
+                                    -17
+                                ],
+                                "shadow": false,
+                                "bindings": [
+                                    {
+                                        "binding_name": "#title_text",
+                                        "binding_type": "global"
+                                    }
+                                ]
+                            }
+                        }, 
+                        {
+                            "close_button@server_form.zeqa_close_button": {
+                                "anchor_from": "top_right",
+                                "anchor_to": "top_right",
+                                "offset": [
+                                    3,
+                                    -3
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "contents": {
+                    "size": [
+                        "100%",
+                        "100%"
+                    ],
+                    "layer": 2,
+                    "type": "image",
+                    "texture": "zeqa/textures/ui/zeqaui/background",
+                    "keep_ratio": false,
+                    "clips_children": true,
+                    "allow_clipping": true,
+                    "controls": [
+                        {
+                            "add_panel": {
+                                "type": "stack_panel",
+                                "orientation": "horizontal",
+                                "offset": [
+                                    -2,
+                                    0
+                                ],
+                                "anchor_to": "center",
+                                "anchor_from": "center",
+                                "size": [
+                                    "100% -30px",
+                                    "100%"
+                                ],
+                                "controls": [
+                                    {
+                                        "zeqa_scroll_panel@zeqa_scroll_panel": {}
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "zeqa_scroll_panel": {
+        "type": "image",
+        "size": [
+            "fill",
+            "100%"
+        ],
+        "layer": 2,
+        "controls": [
+            {
+                "zeqa_scroll_panel_pane@zeqa_scroll_panel_pane": {
+                    "size": [
+                        "100%", 
+                        "100%"
+                    ]
+                }
+            }
+        ]
+    },
+    "zeqa_scroll_panel_pane@common.scrolling_panel": {
+        "size": [
+            "100%",
+            "100%"
+        ],
+        "anchor_to": "center",
+        "anchor_from": "center",
+        "$show_background": false,
+        "$scrolling_content": "server_form.zeqa_grid",
+        "$scroll_size": [
+            "5px",
+            "100%"
+        ],
+        "$scrolling_pane_size": [
+            "100%",
+            "100%"
+        ],
+        "$scrolling_pane_offset": [
+            0,
+            0
+        ],
+        "$scroll_bar_right_padding_size": [
+            0,
+            0
+        ],
+        "keep_ratio": false
+    },
+    "zeqa_close_button@common.close_button": {
+        "$default_button_alpha": 1,
+        "anchor_from": "top_right",
+        "anchor_to": "top_right",
+        "layer": 6,
+        "controls": [
+            {
+                "default": {
+                    "layer": 2,
+                    "type": "image",
+                    "texture": "zeqa/textures/ui/zeqaui/exit",
+                    "size": [
+                        "100%c",
+                        "100%c"
+                    ],
+                    "controls": [
+                        {
+                            "close@common.close_button_panel": {
+                                "$close_button_texture": "zeqa/textures/ui/zeqaui/exit"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "hover": {
+                    "layer": 3,
+                    "type": "image",
+                    "texture": "zeqa/textures/ui/zeqaui/exit_hover",
+                    "size": [
+                        "100%c",
+                        "100%c"
+                    ],
+                    "controls": [
+                        {
+                            "close@common.close_button_panel": {
+                                "$close_button_texture": "zeqa/textures/ui/zeqaui/exit_hover"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "pressed": {
+                    "layer": 2,
+                    "type": "image",
+                    "texture": "zeqa/textures/ui/zeqaui/exit_hover",
+                    "size": [
+                        "100%c",
+                        "100%c"
+                    ],
+                    "controls": [
+                        {
+                            "close@common.close_button_panel": {
+                                "$close_button_texture": "zeqa/textures/ui/zeqaui/exit_hover"
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "zeqa_rclose_button@common.close_button": {
+        "$default_button_alpha": 1,
+        "anchor_from": "top_right",
+        "anchor_to": "top_right",
+        "layer": 6,
+        "offset": [
+            3,
+            -3
+        ],
+        "controls": [
+            {
+                "default": {
+                    "layer": 2,
+                    "type": "image",
+                    "texture": "zeqa/textures/ui/zeqaui/exit",
+                    "size": [
+                        "100%c",
+                        "100%c"
+                    ],
+                    "controls": [
+                        {
+                            "close@common.close_button_panel": {
+                                "$close_button_texture": "zeqa/textures/ui/zeqaui/exit"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "hover": {
+                    "layer": 3,
+                    "type": "image",
+                    "texture": "zeqa/textures/ui/zeqaui/exit_hover",
+                    "size": [
+                        "100%c",
+                        "100%c"
+                    ],
+                    "controls": [
+                        {
+                            "close@common.close_button_panel": {
+                                "$close_button_texture": "zeqa/textures/ui/zeqaui/exit_hover"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "pressed": {
+                    "layer": 2,
+                    "type": "image",
+                    "texture": "zeqa/textures/ui/zeqaui/exit_hover",
+                    "size": [
+                        "100%c",
+                        "100%c"
+                    ],
+                    "controls": [
+                        {
+                            "close@common.close_button_panel": {
+                                "$close_button_texture": "zeqa/textures/ui/zeqaui/exit_hover"
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "zeqa_lclose_button@common.close_button": {
+        "$default_button_alpha": 1,
+        "anchor_from": "top_right",
+        "anchor_to": "top_right",
+        "layer": 6,
+        "offset": [
+            0,
+            0
+        ],
+        "controls": [
+            {
+                "default": {
+                    "layer": 2,
+                    "type": "image",
+                    "texture": "zeqa/textures/ui/zeqaui/exit",
+                    "size": [
+                        "100%c",
+                        "100%c"
+                    ],
+                    "controls": [
+                        {
+                            "close@common.close_button_panel": {
+                                "$close_button_texture": "zeqa/textures/ui/zeqaui/exit"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "hover": {
+                    "layer": 3,
+                    "type": "image",
+                    "texture": "zeqa/textures/ui/zeqaui/exit_hover",
+                    "size": [
+                        "100%c",
+                        "100%c"
+                    ],
+                    "controls": [
+                        {
+                            "close@common.close_button_panel": {
+                                "$close_button_texture": "zeqa/textures/ui/zeqaui/exit_hover"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "pressed": {
+                    "layer": 2,
+                    "type": "image",
+                    "texture": "zeqa/textures/ui/zeqaui/exit_hover",
+                    "size": [
+                        "100%c",
+                        "100%c"
+                    ],
+                    "controls": [
+                        {
+                            "close@common.close_button_panel": {
+                                "$close_button_texture": "zeqa/textures/ui/zeqaui/exit_hover"
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "zeqa_grid": {
+        "type": "panel",
+        "anchor_from": "top_left",
+        "anchor_to": "top_left",
+        "offset": [
+            5,
+            5
+        ],
+        "size": [
+            "100%",
+            "100%c"
+        ],
+        "texture": "$button_texture",
+        "controls": [
+            {
+                "zeqa_menu_grid@server_form.zeqa_menu_grid": {}
+            }
+        ]
+    },
+    "zeqa_menu_grid": {
+        "type": "grid",
+        "size": [
+            "100%",
+            "100%c"
+        ],
+        "anchor_from": "top_right",
+        "anchor_to": "top_right",
+        "grid_item_template": "server_form.zeqa_button_size",
+        "grid_rescaling_type": "horizontal",
+        "collection_name": "form_buttons",
+        "bindings": [
+            {
+                "binding_name": "#form_button_length",
+                "binding_name_override": "#maximum_grid_items"
+            }
+        ]
+    },
+    "zeqa_button_size": {
+        "type": "panel",
+        "size": [
+            90,
+            90
+        ],
+        "anchor_from": "top_right",
+        "anchor_to": "top_right",
+        "controls": [
+            {
+                "zeqa_button": {
+                    "type": "panel",
+                    "size": [
+                        "100%",
+                        "100%"
+                    ],
+                    "controls": [
+                        {
+                            "button@common.button": {
+                                "anchor_from": "top_left",
+                                "anchor_to": "top_left",
+                                "layer": 2,
+                                "$pressed_button_name": "button.form_button_click",
+                                "controls": [
+                                    {
+                                        "default@server_form.zeqa_buttons": {
+                                            "$button_texture": "zeqa/textures/ui/zeqaui/default_long"
+                                        }
+                                    },
+                                    {
+                                        "hover@server_form.zeqa_buttons": {
+                                            "$button_texture": "zeqa/textures/ui/zeqaui/default_hover_long"
+                                        }
+                                    },
+                                    {
+                                        "pressed@server_form.zeqa_buttons": {
+                                            "$button_texture": "zeqa/textures/ui/zeqaui/default_pressed_long"
+                                        }
+                                    }
+                                ],
+                                "bindings": [
+                                    {
+                                        "binding_type": "collection_details",
+                                        "binding_collection_name": "form_buttons"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "zeqa_buttons": {
+        "type": "stack_panel",
+        "anchor_from": "top_left",
+        "anchor_to": "top_left",
+        "offset": [
+            0,
+            14
+        ],
+        "size": [
+            "100%-4px",
+            "100% -4px"
+        ],
+        "orientation": "vertical",
+        "texture": "$button_texture",
+        "controls": [
+            {
+                "menu_icon": {
+                    "size": [
+                        "100%",
+                        "fill"
+                    ],
+                    "layer": 2,
+                    "type": "image",
+                    "texture": "$button_texture",
+                    "controls": [
+                        {
+                            "menu_icon": {
+                                "type": "image",
+                                "layer": 2,
+                                "size": [
+                                    45,
+                                    45
+                                ],
+                                "keep_ratio": true,
+                                "offset": [
+                                    0,
+                                    -8
+                                ],
+                                "bindings": [
+                                    {
+                                        "binding_name": "#form_button_texture",
+                                        "binding_name_override": "#texture",
+                                        "binding_type": "collection",
+                                        "binding_collection_name": "form_buttons"
+                                    },
+                                    {
+                                        "binding_name": "#form_button_texture_file_system",
+                                        "binding_name_override": "#texture_file_system",
+                                        "binding_type": "collection",
+                                        "binding_collection_name": "form_buttons"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "(not ((#texture = '') or (#texture = 'loading')))",
+                                        "target_property_name": "#visible"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "description_text2": {
+                    "size": [
+                        "100%",
+                        0
+                    ],
+                    "layer": 2,
+                    "type": "image",
+                    "controls": [
+                        {
+                            "entry_description_label": {
+                                "type": "label",
+                                "font_type": "default",
+                                "text": "#form_button_text",
+                                "line_padding": 1,
+                                "font_scale_factor": 1,
+                                "text_alignment": "center",
+                                "anchor_from": "top_left",
+                                "anchor_to": "top_left",
+                                "offset": [
+                                    3,
+                                    -28
+                                ],
+                                "size": [
+                                    "100% - 6px",
+                                    "default"
+                                ],
+                                "layer": 5,
+                                "shadow": false,
+                                "bindings": [
+                                    {
+                                        "binding_type": "collection",
+                                        "binding_collection_name": "form_buttons",
+                                        "binding_condition": "none",
+                                        "binding_name": "#form_button_text",
+                                        "binding_name_override": "#form_button_text"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+
+    "zeqa_rank_form": {
+        "type": "panel",
+        "anchor_from": "center",
+        "anchor_to": "center",
+        "size": [
+            "70%",
+            "70%"
+        ],
+        "offset": [
+            0,
+            0
+        ],
+        "orientation": "vertical",
+        "controls": [
+            {
+                "title": {
+                    "type": "panel",
+                    "anchor_from": "top_right",
+                    "anchor_to": "top_right",
+                    "controls": [
+                        {
+                            "close_button@server_form.zeqa_rclose_button": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "contents": {
+                    "size": [
+                        "100%",
+                        "100%"
+                    ],
+                    "layer": 2,
+                    "type": "image",
+                    "texture": "zeqa/textures/ui/zeqaui/rank",
+                    "keep_ratio": false
+                }
+            }
+        ]
+    },
+    "zeqa_rules_form": {
+        "type": "panel",
+        "anchor_from": "center",
+        "anchor_to": "center",
+        "size": [
+            "70%",
+            "70%"
+        ],
+        "offset": [
+            0,
+            0
+        ],
+        "orientation": "vertical",
+        "controls": [
+            {
+                "title": {
+                    "type": "panel",
+                    "anchor_from": "top_right",
+                    "anchor_to": "top_right",
+                    "controls": [
+                        {
+                            "close_button@server_form.zeqa_rclose_button": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "contents": {
+                    "size": [
+                        "100%",
+                        "100%"
+                    ],
+                    "layer": 2,
+                    "type": "image",
+                    "texture": "zeqa/textures/ui/zeqaui/rules",
+                    "keep_ratio": false
+                }
+            }
+        ]
+    },
+    "long_form": {
+        "type": "panel",
+        "anchor_from": "center",
+        "anchor_to": "center",
+        "size": [225, 175],
+        "orientation": "vertical",
+        "controls": [
+            {
+                "title": {
+                    "type": "panel",
+                    "anchor_from": "top_right",
+                    "anchor_to": "top_right",
+                    "controls": [
+                        {
+                            "title_text": {
+                                "layer": 5,
+                                "type": "label",
+                                "font_type": "MinecraftSeven",
+                                "text": "#title_text",
+                                "text_alignment": "center",
+                                "font_scale_factor": 0.5,
+                                "anchor_from": "top_middle",
+                                "anchor_to": "top_middle",
+                                "offset": [
+                                    0,
+                                    -28
+                                ],
+                                "shadow": false,
+                                "bindings": [
+                                    {
+                                        "binding_name": "#title_text",
+                                        "binding_type": "global"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "close_button@server_form.zeqa_lclose_button": {
+                                "anchor_from": "top_right",
+                                "anchor_to": "top_right",
+                                "offset": [
+                                    3,
+                                    -13
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "contents": {
+                    "size": [
+                        "100%",
+                        "100% + 25px"
+                    ],
+                    "layer": 2,
+                    "type": "image",
+                    "texture": "zeqa/textures/ui/zeqaui/background",
+                    "keep_ratio": false,
+                    "clips_children": true,
+                    "allow_clipping": true,
+                    "controls": [
+                        {
+                            "add_panel": {
+                                "type": "stack_panel",
+                                "orientation": "horizontal",
+                                "offset": [
+                                    0,
+                                    0
+                                ],
+                                "anchor_to": "top_left",
+                                "anchor_from": "top_left",
+                                "size": [
+                                    "100%",
+                                    "100%"
+                                ],
+                                "controls": [
+                                    {
+                                        "long_form_panel@long_form_panel": {}
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    
+      "long_form_panel" : {
+        "type": "stack_panel",
+        "size": ["100%", "100%"],
+        "orientation": "vertical",
+        "layer": 1,
+        "anchor_from": "top_left",
+        "anchor_to": "top_left",
+        "controls": [
+          
+          {
+            "scrolling_panel@common.scrolling_panel": {
+              "anchor_to": "top_left",
+              "anchor_from": "top_left",   
+              "$show_background": false,
+              "size": [ "97%", "89%" ],
+              "$scrolling_content": "server_form.long_form_scrolling_content",
+              "$scroll_size": [ 5, "85%" ],
+              "$scrolling_pane_size": [ "100% - 4px", "100% - 2px" ],
+              "$scrolling_pane_offset": [ 2, 10 ],
+              "$scroll_bar_right_padding_size": [ 0, 0 ]
+            }
+          }
+        ]
+      },
+    
+      "long_form_scrolling_content": {
+        "type": "stack_panel",
+        "size": [ "100% - 4px", "100%c" ],
+        "orientation": "vertical",
+        "anchor_from": "top_left",
+        "anchor_to": "top_left",
+    
+        "controls": [
+          {
+            "label_offset_panel": {
+              "type": "panel",
+              "size": ["100%", "100%c"],
+              "controls": [
+                {
+                  "main_label": {
+                    "type": "label",
+                    "offset": [2,2],
+                    "color": "$main_header_text_color",
+                    "size": ["100%", "default"],
+                    "anchor_from": "top_left",
+                    "anchor_to": "top_left",
+                    "text": "#form_text" 
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "padding": {
+              "type": "panel",
+              "size": [ "100%", 4 ]
+            }
+          },
+          {
+            "wrapping_panel": {
+              "type": "panel",
+              "size": [ "100%", "100%c" ],
+              "controls": [
+                {
+                  "long_form_dynamic_buttons_panel@server_form.long_form_dynamic_buttons_panel": {}
+                }
+              ]
+            }
+          }
+        ]
+      },
+    
+      "long_form_dynamic_buttons_panel": {
+        "type": "stack_panel",
+        "size": ["100% - 4px", "100%c"],
+        "offset": [2,0],
+        "orientation": "vertical",
+        "anchor_from": "top_middle",
+        "anchor_to": "top_middle",
+    
+        "factory":{
+          "name": "buttons",
+          "control_name": "server_form.dynamic_button"
+        },
+    
+        "collection_name": "form_buttons",
+        "bindings": [
+          {
+            "binding_name": "#form_button_length",
+            "binding_name_override": "#collection_length"
+          }
+        ]
+      },
+    
+      "dynamic_button": {
+        "type": "stack_panel",
+        "size": ["100%", 32],
+        "orientation": "horizontal",
+        "controls":[
+          {
+            "panel_name": {
+              "type": "panel",
+              "size": [34, "100%c"],
+              "bindings": [
+                {
+                  "binding_type": "view",
+                  "source_control_name": "image",
+                  "resolve_sibling_scope": true,
+                  "source_property_name": "(not (#texture = ''))",
+                  "target_property_name": "#visible"
+                }
+              ],
+    
+              "controls": [
+                {
+                  "image": {
+                    "type": "image",
+                    "layer": 2,
+                    "size": [32, 32],
+                    "offset": [-2, 0],
+                    "bindings":[
+                      {
+                        "binding_name": "#form_button_texture",
+                        "binding_name_override": "#texture",
+                        "binding_type": "collection",
+                        "binding_collection_name": "form_buttons"
+                      },
+                      {
+                        "binding_name": "#form_button_texture_file_system",
+                        "binding_name_override": "#texture_file_system",
+                        "binding_type": "collection",
+                        "binding_collection_name": "form_buttons"
+                      },
+                      {
+                        "binding_type": "view",
+                        "source_property_name": "(not ((#texture = '') or (#texture = 'loading')))",
+                        "target_property_name": "#visible"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "form_button@common_buttons.light_text_button": {
+              "$pressed_button_name": "button.form_button_click",
+              "anchor_from": "top_left",
+              "anchor_to": "top_left",
+              "size": [ "fill", 32 ],
+              "$default_button_texture": "zeqa/textures/ui/zeqaui/default_long",
+              "$hover_button_texture": "zeqa/textures/ui/zeqaui/default_hover_long",
+              "$selected_button_texture": "zeqa/textures/ui/zeqaui/default_pressed_long",
+              "$border_visible": false,
+              "$button_text": "#form_button_text",
+              "$button_text_binding_type": "collection",
+              "$button_text_grid_collection_name": "form_buttons",
+              "$button_text_max_size": [ "100%", 20 ],
+              "bindings": [
+                {
+                  "binding_type": "collection_details",
+                  "binding_collection_name": "form_buttons"
+                }
+              ]
+            }
+          }
+        ]
+      },
+
+
+      "custom_form": {
+        "type": "panel",
+        "anchor_from": "center",
+        "anchor_to": "center",
+        "size": [225, 175],
+        "orientation": "vertical",
+        "controls": [
+            {
+                "title": {
+                    "type": "panel",
+                    "anchor_from": "top_right",
+                    "anchor_to": "top_right",
+                    "controls": [
+                        {
+                            "title_text": {
+                                "layer": 5,
+                                "type": "label",
+                                "font_type": "MinecraftSeven",
+                                "text": "#title_text",
+                                "text_alignment": "center",
+                                "font_scale_factor": 0.5,
+                                "anchor_from": "top_middle",
+                                "anchor_to": "top_middle",
+                                "offset": [
+                                    0,
+                                    -28
+                                ],
+                                "shadow": false,
+                                "bindings": [
+                                    {
+                                        "binding_name": "#title_text",
+                                        "binding_type": "global"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "close_button@server_form.zeqa_lclose_button": {
+                                "anchor_from": "top_right",
+                                "anchor_to": "top_right",
+                                "offset": [
+                                    3,
+                                    -13
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "contents": {
+                    "size": [
+                        "100%",
+                        "100% + 25px"
+                    ],
+                    "layer": 2,
+                    "type": "image",
+                    "texture": "zeqa/textures/ui/zeqaui/background",
+                    "keep_ratio": false,
+                    "clips_children": true,
+                    "allow_clipping": true,
+                    "controls": [
+                        {
+                            "add_panel": {
+                                "type": "stack_panel",
+                                "orientation": "horizontal",
+                                "offset": [
+                                    0,
+                                    0
+                                ],
+                                "anchor_to": "top_left",
+                                "anchor_from": "top_left",
+                                "size": [
+                                    "100%",
+                                    "100%"
+                                ],
+                                "controls": [
+                                    {
+                                        "custom_form_panel@custom_form_panel": {}
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    
+      "custom_form_panel@common.scrolling_panel" : {
+        "anchor_to": "top_left",
+        "anchor_from": "top_left",
+        "$show_background": false,
+        "size": [ "95%", "89%" ],
+        "$scrolling_content": "server_form.custom_form_scrolling_content",
+        "$scroll_size": [ 5, "85%" ],
+        "$scrolling_pane_size": [ "100% - 4px", "100% - 2px" ],
+        "$scrolling_pane_offset": [ 2, 10 ],
+        "$scroll_bar_right_padding_size": [ 0, 0 ]
+      },
+    
+      "generated_contents": {
+        "type": "stack_panel",
+        "size": ["100%", "100%c"],
+        "orientation": "vertical",
+        "anchor_from": "top_left",
+        "anchor_to": "top_left",
+    
+        "factory":{ 
+          "name": "buttons",
+          "control_ids": {
+            "label": "@server_form.custom_label",
+            "toggle": "@server_form.custom_toggle",
+            "slider": "@server_form.custom_slider",
+            "step_slider": "@server_form.custom_step_slider",
+            "dropdown": "@server_form.custom_dropdown",
+            "input": "@server_form.custom_input"
+          }
+        },
+    
+        "collection_name": "custom_form",
+        "bindings": [
+          {
+            "binding_name": "#custom_form_length",
+            "binding_name_override": "#collection_length"
+          }
+        ]
+      },
+    
+      "custom_form_scrolling_content": {
+        "type": "stack_panel",
+        "size": ["100% - 4px", "100%c"],
+        "offset": [2,0],
+        "orientation": "vertical",
+        "anchor_from": "top_left",
+        "anchor_to": "top_left",
+    
+        "controls": [
+          {
+            "generated_form@server_form.generated_contents": {}
+          },
+          {
+            "submit_button@common_buttons.light_text_button": {
+              "$pressed_button_name": "button.submit_custom_form",
+              "anchor_from": "top_left",
+              "anchor_to": "top_left",
+              "$default_button_texture": "zeqa/textures/ui/zeqaui/default_long",
+              "$hover_button_texture": "zeqa/textures/ui/zeqaui/default_hover_long",
+              "$selected_button_texture": "zeqa/textures/ui/zeqaui/default_pressed_long",
+              "$border_visible": false,
+              "size": ["100%", 32],
+              "$button_text": "gui.submit",
+    
+              "bindings": [
+                {
+                  "binding_name": "#submit_button_visible",
+                  "binding_name_override": "#visible"
+                }
+              ]
+            }
+          }
+        ]    
+      },
+    
+
+      
+      "custom_label@settings_common.option_group_label": {
+        "$text": "#custom_text",
+        "text_alignment": "center",
+        "anchor_to": "top_left",
+        "anchor_from": "top_left",
+        "$font_scale_factor": 0.91,
+        "$text_bindings":[
+          {
+            "binding_name": "#custom_text",
+            "binding_type": "collection",
+            "binding_collection_name": "custom_form"
+          }
+        ]
+      },
+    
+      "custom_toggle": {
+          "type":"panel",
+          "size": [ "100%", "15%x" ],
+          "controls": [ 
+            {
+      "custom_toggles@common.toggle": {
+        "$option_label": "#custom_text",
+        "$toggle_name": "custom_toggle",
+        "anchor_to": "top_left",
+        "anchor_from": "top_left",
+        "layer": 2,
+        "offset": [
+            -6,
+            0
+        ],
+        "size": [
+            "15% - 4px",
+            "100% - 4px"
+        ],
+        "$toggle_state_binding_name": "#custom_toggle_state",
+        "$option_binding_name": "#custom_toggle_state",
+        "$toggle_binding_type": "collection",
+        "$toggle_enabled_binding_name": "#custom_toggle_enabled",
+        "$toggle_enabled_binding_type": "collection",
+        "$toggle_grid_collection_name": "custom_form",
+
+        "$unchecked_control": "server_form.option_toggle_off",
+        "$checked_control": "server_form.option_toggle_on",
+        "$unchecked_hover_control": "server_form.option_toggle_off_hover",
+        "$checked_hover_control": "server_form.option_toggle_on_hover",
+
+        "$label_bindings": [ 
+          {
+            "binding_name": "#custom_text",
+            "binding_type": "collection",
+            "binding_collection_name": "custom_form"
+          } 
+        ]
+      }
+    },
+    {
+        "custom_label_text@server_form.custom_label": {
+            "text_alignment": "center",
+            "offset": [
+                23,
+                0
+            ]
+        }
+    }]},
+
+      "option_toggle_on@server_form.offonhoverimage": {
+        "texture": "zeqa/textures/ui/zeqaui/on"
+      },
+    
+      "option_toggle_off@server_form.offonhoverimage": {
+        "texture": "zeqa/textures/ui/zeqaui/off"
+      },
+    
+      "option_toggle_on_hover@server_form.offonhoverimage": {
+        "texture": "zeqa/textures/ui/zeqaui/hover"
+      },
+    
+      "option_toggle_off_hover@server_form.offonhoverimage": {
+        "texture": "zeqa/textures/ui/zeqaui/offhover"
+      },
+
+      "offonhoverimage": {
+        "type": "image",
+        "size": [ 30, 16 ],
+        "anchor_from": "top_left",
+        "anchor_to": "top_left"
+      },
+    
+      "custom_slider@settings_common.option_slider": {
+        "$option_label": "#custom_slider_text",
+        "$slider_name": "custom_slider",
+        "$slider_value_binding_name": "#custom_slider_value",
+        "$slider_tts_text_value": "#custom_slider_text_value",
+        "$slider_binding_type": "collection",
+        "$slider_collection_name": "custom_form",
+        "$slider_enabled_binding_name": "#custom_slider_enabled",
+        "$slider_enabled_binding_type": "collection",
+        "$label_bindings": [
+          {
+            "binding_name": "#custom_slider_text",
+            "binding_type": "collection", 
+            "binding_collection_name": "custom_form"
+          }
+        ]
+      },
+
+      "slider_button_state": {
+        "type": "image",
+        "layer": 2,
+        "texture": "textures/ui/slider_button_default"
+      },
+    
+      "slider_button_layout@server_form.slider_button_state": {
+        "texture": "zeqa/textures/ui/zeqaui/default_long"
+      },
+    
+      "slider_button_hover_layout@server_form.slider_button_state": {
+        "texture": "zeqa/textures/ui/zeqaui/default_hover_long"
+      },
+    
+      "slider_button_locked_layout@server_form.slider_button_state": {
+        "texture": "zeqa/textures/ui/zeqaui/default_long"
+      },
+    
+      "slider_button_indent_layout@server_form.slider_button_state": {
+        "texture": "zeqa/textures/ui/zeqaui/default_long"
+      },
+
+    
+      "custom_step_slider@server_form.custom_slider": {
+        "$option_label": "#custom_slider_step_text",
+        "$slider_name": "custom_slider_step",
+        "$slider_value_binding_name": "#custom_slider_step_value",
+        "$slider_tts_text_value": "#custom_slider_step_text_value",
+        "$slider_steps_binding_type": "collection",
+        "$slider_steps_binding_name": "#custom_slider_steps",
+        "$label_bindings": [
+          {
+            "binding_name": "#custom_slider_step_text",
+            "binding_type": "collection",
+            "binding_collection_name": "custom_form"
+          }
+        ]
+      },
+    
+      "custom_dropdown": {
+        "type": "panel",
+        "size": ["100%", "100%c"],
+        "controls": [
+          {
+            "dropdown@settings_common.option_dropdown": {
+              "$option_label": "#custom_text",
+              "$dropdown_content": "server_form.custom_dropdown_content",
+              "$dropdown_area": "generated_form",
+              "$dropdown_name": "custom_dropdown",
+              "$toggle_binding_type": "collection",
+              "$toggle_grid_collection_name": "custom_form",
+              "$options_dropdown_toggle_label_binding": "#dropdown_option_text",
+              "$options_dropdown_toggle_label_binding_type": "collection",
+              "$options_dropdown_toggle_label_binding_collection_name": "custom_form",
+              "$dropdown_scroll_content_size": [ "100%", "200%" ],
+              "$label_bindings": [
+                {
+                  "binding_name": "#custom_text",
+                  "binding_type": "collection",
+                  "binding_collection_name": "custom_form"
+                }
+              ]
+            }
+          }
+        ]
+      },
+    
+      "custom_dropdown_content@settings_common.option_radio_dropdown_group": {
+        "$radio_buttons": [],
+    
+        "$radio_factory":{
+          "name": "buttons",
+          "control_name": "server_form.custom_dropdown_radio"
+        },
+    
+        "$radio_collection_name": "custom_dropdown",
+        "$radio_bindings": [
+          {
+            "binding_name": "#custom_dropdown_length",
+            "binding_type": "collection",
+            "binding_name_override": "#collection_length",
+            "binding_collection_name": "custom_form"
+          }
+        ]
+      },
+    
+      "custom_dropdown_radio@settings_common.radio_with_label": {
+        "$toggle_name": "custom_dropdown_radio_toggle",
+        "$toggle_state_binding_name": "#custom_radio_toggled",
+        "$toggle_binding_type": "collection",
+        "$toggle_grid_collection_name": "custom_dropdown",
+        "$toggle_collection_details_type": "collection_details",
+    
+        "$radio_label_text": "#custom_radio_text",
+        "$radio_label_bindings": [
+          {
+            "binding_name": "#custom_radio_text",
+            "binding_type": "collection",
+            "binding_collection_name": "custom_dropdown"
+          },
+          {
+            "binding_type": "collection_details"
+          }
+        ]
+      },
+     
+      "custom_input@settings_common.option_text_edit": {
+        "$option_label": "#custom_text",
+        "$option_place_holder_text": "#custom_placeholder_text",
+        "$text_edit_box_placeholder_content_binding_name": "$option_place_holder_text",
+        "$text_edit_box_placeholder_content_binding_type": "collection",
+        "$text_edit_box_grid_collection_name": "custom_form",
+    
+        "$max_text_edit_length": 100,
+    
+        "$text_edit_box_content_binding_type": "collection",
+        "$text_edit_box_content_binding_name": "#custom_input_text",
+    
+        "$option_binding_name": "#custom_input_text",
+        "$text_box_enabled_binding_name": "#custom_input_enabled",
+        "$text_box_name": "custom_input",
+        "$label_bindings": [
+          {
+            "binding_name": "#custom_text",
+            "binding_type": "collection",
+            "binding_collection_name": "custom_form"
+          }
+        ]
+      }
+}

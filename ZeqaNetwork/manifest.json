@@ -1,0 +1,17 @@
+{
+  "format_version": 1,
+  "header": {
+    "description": "",
+    "name": "§e§lZeqa §f§lNetwork§r",
+    "uuid": "210d0717-5f93-4e4e-bf90-8ddf4c1fa519",
+    "version": [2, 0, 0]
+  },
+  "modules": [
+    {
+      "description": "",
+      "type": "resources",
+      "uuid": "66c1a34d-4cc8-4ed8-923e-c135e122532c",
+      "version": [2, 0, 0]
+    }
+  ]
+}
